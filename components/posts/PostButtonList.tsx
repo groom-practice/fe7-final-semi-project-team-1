@@ -1,5 +1,6 @@
 import { fetchPosts } from "@/api/posts";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import Link from "next/link";
 
 export default function PostButtonList() {
     const {
@@ -21,7 +22,7 @@ export default function PostButtonList() {
         <div className="space-y-4 bg-gray-100 p-4 rounded shadow h-full overflow-y-auto">
             {data?.pages.flat().map((post) => (
                 <div key={post.id} className="p-4 bg-white rounded shadow-sm">
-                    <h3 className="font-semibold text-lg">{post.title}</h3>
+                    <Link href={`/posts/detail/${post.id}`} className="font-semibold text-lg">{post.title}</Link>
                     <p className="text-sm text-gray-600">{post.body}</p>
                 </div>
             ))}

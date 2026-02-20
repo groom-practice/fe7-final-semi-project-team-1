@@ -1,6 +1,7 @@
 // src/components/PostScrollList.tsx
 import { fetchPosts } from "@/api/posts";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 export default function PostScrollList() {
@@ -47,7 +48,7 @@ export default function PostScrollList() {
         <div className="space-y-4">
             {data?.pages.flat().map((post) => (
                 <div key={post.id} className="p-4 border rounded shadow-sm bg-white">
-                    <h3 className="font-semibold text-lg">{post.title}</h3>
+                    <Link href={`/posts/detail/${post.id}`} className="font-semibold text-lg">{post.title}</Link>
                     <p className="text-sm text-gray-600">{post.body}</p>
                 </div>
             ))}
