@@ -2,6 +2,7 @@
 
 import PostDeleteButton from "@/components/posts/PostDeleteButton";
 import PostDetail from "@/components/posts/PostDetail";
+import { classNames } from "@/lib/classNames/login/classNames";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
@@ -17,7 +18,12 @@ export default function PostDetailPage() {
             <PostDetail postId={postId} />
 
             <div className="flex gap-2 justify-end">
-                <Link href={`/posts/edit/${postId}`} className="bg-blue-500 text-white px-4 py-2 rounded-md">수정</Link>
+                <Link
+                    href={`/posts/edit/${postId}`}
+                    className={classNames.formButton}
+                >
+                    수정
+                </Link>
                 <PostDeleteButton postId={postId} />
             </div>
         </div>
